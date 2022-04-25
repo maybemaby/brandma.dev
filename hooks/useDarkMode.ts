@@ -17,7 +17,6 @@ export const useDarkMode = (): [boolean, (value: boolean) => void] => {
     } else {
       element.classList.remove(className);
     }
-    console.log(enabled);
   }, [enabled]);
 
   return [enabled, setMode];

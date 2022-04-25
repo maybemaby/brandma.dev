@@ -8,7 +8,6 @@ export const DarkModeContext = createContext<{
 
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
   const [darkOn, setDarkOn] = useDarkMode();
-
   const value = { darkOn, setDarkOn };
   return (
     <DarkModeContext.Provider value={value}>

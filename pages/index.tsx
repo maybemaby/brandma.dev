@@ -1,26 +1,35 @@
 import type { NextPage } from "next";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { DarkModeContext } from "../components/DarkModeProvider";
+import { DarkModeToggle } from "../components/DarkModeToggle";
 import { lightTheme, darkTheme } from "../theme";
 
 const Div = styled.div`
   background: ${(props) => props.theme.bg.primary};
   height: 100%;
+  transition: all 200ms linear;
 `;
 
 const PortfolioHeader = styled.header`
   height: 100px;
   color: ${(props) => props.theme.font.color};
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem 0 3rem;
+  padding-left: 15px;
+  @media screen and (min-width: 768px) {
+    padding: 0 1.5rem 0 3rem;
+  }
 `;
 
-const DarkModeButton = styled.button`
-  position: fixed;
-  top: 2.5rem;
-  right: 1.5rem;
+const HeaderIcon = styled.h1`
+  margin: 0;
+  font-size: ${(props) => props.theme.fontSizes[3]};
+  padding: 5px 10px;
+  color: black;
+  background: ${(props) => props.theme.bg.gradient};
+  backdrop-filter: blur(2px);
 `;
 
 const Home: NextPage = () => {
@@ -34,9 +43,9 @@ const Home: NextPage = () => {
     <ThemeProvider theme={darkMode?.darkOn ? darkTheme : lightTheme}>
       <Div>
         <PortfolioHeader>
-          <h1 style={{ margin: 0 }}>Brandon Ma</h1>
+          <HeaderIcon>brandma.dev</HeaderIcon>
+          <DarkModeToggle onClick={toggleDark} />
         </PortfolioHeader>
-        <DarkModeButton onClick={toggleDark}>Toggle Dark</DarkModeButton>
       </Div>
     </ThemeProvider>
   );
