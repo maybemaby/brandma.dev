@@ -1,11 +1,7 @@
 import type { AppProps } from "next/app";
-import { useContext, useEffect, useRef } from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { darkTheme, lightTheme } from "../theme";
-import {
-  DarkModeProvider,
-  DarkModeContext,
-} from "../components/DarkModeProvider";
+import { useState, useEffect } from "react";
+import { createGlobalStyle } from "styled-components";
+import { DarkModeProvider } from "../components/DarkModeProvider";
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -27,6 +23,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <DarkModeProvider>
       <GlobalStyle />
