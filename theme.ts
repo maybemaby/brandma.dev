@@ -31,6 +31,9 @@ const defaultTheme = {
     title: 600,
     subtitle: 500,
   },
+  fontColor: {
+    black: "black",
+  },
 };
 
 export const lightTheme = { ...defaultTheme, ...light };

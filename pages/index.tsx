@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { DarkModeContext } from "../components/DarkModeProvider";
 import { DarkModeToggle } from "../components/DarkModeToggle";
-import { SideBar } from "../components/SideBar";
+import { SideBar } from "../components/SideBar/SideBar";
 import { lightTheme, darkTheme } from "../theme";
 
 const Div = styled.div`
@@ -40,10 +40,18 @@ const Home: NextPage = () => {
     if (darkMode) darkMode.setDarkOn(!darkMode.darkOn);
   };
 
+  const links = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    { name: "Projects", path: "/projects" },
+  ];
+
   return (
     <ThemeProvider theme={darkMode?.darkOn ? darkTheme : lightTheme}>
       <Div>
-        <SideBar />
+        <SideBar links={links} />
         <PortfolioHeader>
           <HeaderIcon>brandma.dev</HeaderIcon>
           <DarkModeToggle onClick={toggleDark} />

@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import Image from "next/image";
 import styled, { keyframes } from "styled-components";
+import { DarkModeContext } from "../DarkModeProvider";
+import { SideBarItem } from "./SideBarItem";
 
 interface DockProps {
   open: boolean;
@@ -33,9 +36,13 @@ const DockButton = styled.button<DockProps>`
 `;
 
 const Dock = styled.nav<DockProps>`
+  padding: 30px 5px 20px 0;
   position: fixed;
   right: 0;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   background-color: ${(p) => p.theme.bg.secondary};
   width: ${(p) => (p.open ? "200px" : "0px")};
   z-index: 2;
@@ -46,8 +53,16 @@ const CollapsingDock = styled(Dock)`
   animation: ${SlideOut} 200ms cubic-bezier(0.23, 1, 0.32, 1) reverse;
 `;
 
-export const SideBar = () => {
+interface SideBarProps {
+  links: {
+    name: string;
+    path: string;
+  }[];
+}
+
+export const SideBar = ({ links }: SideBarProps) => {
   const [open, setOpen] = useState(false);
+  const darkMode = useContext(DarkModeContext);
 
   const toggleOpen = () => {
     setOpen(!open);
@@ -55,8 +70,25 @@ export const SideBar = () => {
 
   return (
     <div>
-      <DockButton onClick={toggleOpen} open={open}></DockButton>
-      {open && <Dock open={open}></Dock>}
+      <DockButton onClick={toggleOpen} open={open}>
+        <Image
+          src={
+            darkMode?.darkOn
+              ? "/baseline_menu_black_36dp.png"
+              : "/baseline_menu_white_36dp.png"
+          }
+          alt="Menu icon"
+          width={30}
+          height={30}
+        />
+      </DockButton>
+      {open && (
+        <Dock open={open}>
+          {links.map((link, index) => (
+            <SideBarItem key={index} name={link.name} path={link.path} />
+          ))}
+        </Dock>
+      )}
       {!open && <CollapsingDock open={open}></CollapsingDock>}
     </div>
   );
