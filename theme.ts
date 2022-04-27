@@ -2,6 +2,7 @@ const light = {
   mode: "light",
   bg: {
     primary: "#B2DFF8",
+    secondary: "black",
     gradient:
       "linear-gradient(97.52deg, #FFF6EC 41.27%, #FFF8B8 71.76%, #FBBE9C 96.58%)",
   },
@@ -14,6 +15,7 @@ const dark = {
   mode: "dark",
   bg: {
     primary: "#101010",
+    secondary: "whitesmoke",
     gradient:
       "linear-gradient(97.52deg, #D2DBD6 41.27%, #FDD7F2 68.06%, #8CC8FF 96.58%)",
   },

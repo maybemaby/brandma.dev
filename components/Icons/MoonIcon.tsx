@@ -1,6 +1,6 @@
 export const MoonIcon = () => {
   return (
-    <div style={{ height: "35px", width: "35px" }}>
+    <div style={{ height: "30px", width: "30px" }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"

@@ -25,9 +25,15 @@ const DarkModeButton = styled.button`
   top: 2rem;
   right: 1.5rem;
   background: transparent;
-  border: none;
+  border: 3px solid ${(p) => p.theme.bg.secondary};
   cursor: pointer;
+  padding: 3px;
+  border-radius: 50%;
   animation: ${rotateAndZoom} 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 200ms ease-in-out;
+  &:hover {
+    padding: 5px;
+  }
 `;
 
 // ${rotateAndZoom} 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);

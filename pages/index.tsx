@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { DarkModeContext } from "../components/DarkModeProvider";
 import { DarkModeToggle } from "../components/DarkModeToggle";
+import { SideBar } from "../components/SideBar";
 import { lightTheme, darkTheme } from "../theme";
 
 const Div = styled.div`
@@ -42,6 +43,7 @@ const Home: NextPage = () => {
   return (
     <ThemeProvider theme={darkMode?.darkOn ? darkTheme : lightTheme}>
       <Div>
+        <SideBar />
         <PortfolioHeader>
           <HeaderIcon>brandma.dev</HeaderIcon>
           <DarkModeToggle onClick={toggleDark} />
