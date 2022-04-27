@@ -33,6 +33,10 @@ const DockButton = styled.button<DockProps>`
   &:hover {
     width: ${(p) => (p.open ? "30px" : "45px")};
   }
+
+  @media screen and (min-width: 1920px) {
+    display: none;
+  }
 `;
 
 const Dock = styled.nav<DockProps>`
@@ -47,10 +51,18 @@ const Dock = styled.nav<DockProps>`
   width: ${(p) => (p.open ? "200px" : "0px")};
   z-index: 2;
   animation: ${SlideOut} 300ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  @media screen and (min-width: 1920px) {
+    display: none;
+  }
 `;
 
 const CollapsingDock = styled(Dock)`
-  animation: ${SlideOut} 200ms cubic-bezier(0.23, 1, 0.32, 1) reverse;
+  animation: ${SlideOut} 300ms cubic-bezier(0.23, 1, 0.32, 1) reverse;
+
+  @media screen and (min-width: 1920px) {
+    display: none;
+  }
 `;
 
 interface SideBarProps {
@@ -62,10 +74,13 @@ interface SideBarProps {
 
 export const SideBar = ({ links }: SideBarProps) => {
   const [open, setOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const darkMode = useContext(DarkModeContext);
 
   const toggleOpen = () => {
+    setIsClosing(true);
     setOpen(!open);
+    setTimeout(() => setIsClosing(false), 300);
   };
 
   return (
@@ -89,7 +104,7 @@ export const SideBar = ({ links }: SideBarProps) => {
           ))}
         </Dock>
       )}
-      {!open && <CollapsingDock open={open}></CollapsingDock>}
+      {!open && isClosing && <CollapsingDock open={open}></CollapsingDock>}
     </div>
   );
 };

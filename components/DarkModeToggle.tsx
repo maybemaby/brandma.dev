@@ -33,6 +33,7 @@ const DarkModeButton = styled.button`
   transition: all 200ms ease-in-out;
   &:hover {
     padding: 5px;
+    border-color: ${(p) => (p.theme.mode === "dark" ? "#32b997" : "#f3b91a")};
   }
 `;
 

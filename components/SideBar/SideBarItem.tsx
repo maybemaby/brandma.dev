@@ -8,7 +8,8 @@ interface SideBarProps {
 
 const SideBarLink = styled.a`
   text-decoration: none;
-  color: ${(p) => p.theme.fontColor.black};
+  color: ${(p) =>
+    p.theme.mode === "dark" ? p.theme.color.black : p.theme.color.white};
   cursor: pointer;
   margin-left: 20px;
   font-size: ${(p) => p.theme.fontSizes[4]};
