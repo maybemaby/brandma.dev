@@ -8,6 +8,7 @@ const light = {
   },
   font: {
     color: {
+      default: "black",
       lightBackground: "#f2e8d3",
     },
   },
@@ -23,6 +24,7 @@ const dark = {
   },
   font: {
     color: {
+      default: "whitesmoke",
       darkBackground: "#81d1ff",
       lightBackground: "black",
     },
