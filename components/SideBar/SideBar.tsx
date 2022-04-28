@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import { DarkModeContext } from "../DarkModeProvider";
@@ -77,10 +77,20 @@ export const SideBar = ({ links }: SideBarProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const darkMode = useContext(DarkModeContext);
 
+  useEffect(() => {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && open) {
+        toggleOpen();
+        console.log("close");
+      }
+    });
+  }, [open]);
+
   const toggleOpen = () => {
-    setIsClosing(true);
+    setIsClosing(!open);
     setOpen(!open);
-    setTimeout(() => setIsClosing(false), 300);
+    // setTimeout(() => setIsClosing(false), 300);
+    setIsClosing(false);
   };
 
   return (
