@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 
 interface CardProps {
   children?: React.ReactNode;
@@ -8,6 +8,7 @@ interface CardProps {
   height: string;
   bgColor?: string;
   borderRadius?: string;
+  styles?: CSSProperties;
 }
 
 interface ContainerProps {
@@ -16,6 +17,7 @@ interface ContainerProps {
   height: string;
   bgColor?: string;
   borderRadius?: string;
+  styles?: CSSProperties;
 }
 
 const Container = styled.div<ContainerProps>`
