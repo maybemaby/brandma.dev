@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FaReact } from "react-icons/fa";
 import { IconType } from "react-icons";
 
 interface BadgeStyleProps {
@@ -13,17 +12,23 @@ const Badge = styled.div<BadgeStyleProps>`
   padding: 5px 15px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   gap: 10px;
-  max-width: 100px;
   width: fit-content;
+  min-width: 100px;
+  height: 35px;
   font-weight: 600;
   transform: scale(1.1);
   color: ${(p) => p.color ?? p.theme.color.primary};
 `;
 
 const Label = styled.span`
-  font-size: 16px;
+  font-size: 12px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 interface IconBadgeProps {
@@ -36,7 +41,7 @@ interface IconBadgeProps {
 export const IconBadge = ({ label, bgColor, color, Icon }: IconBadgeProps) => {
   return (
     <Badge color={color} bgColor={bgColor}>
-      <Icon size={"1.5em"} />
+      <Icon size={20} />
       <Label>{label}</Label>
     </Badge>
   );
