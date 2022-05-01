@@ -16,6 +16,14 @@ interface ProjectSectionProps {
   projects: Project[];
 }
 
+const FancyCard = styled(Card)`
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
 const Container = styled.section`
   display: flex;
   flex-direction: column;
@@ -57,7 +65,7 @@ const ProjectFooter = styled.div`
 const ProjectLink = styled.a`
   text-decoration: none;
   font-weight: 600;
-  color: ${(p) => p.theme.color.black};
+  color: inherit;
   font-size: 1.05rem;
   margin-right: 15px;
 
@@ -88,7 +96,7 @@ export const ProjectSection = ({ projects }: ProjectSectionProps) => {
       <Header>Projects</Header>
       {projects.map((project, index) => {
         return (
-          <Card
+          <FancyCard
             width={"100%"}
             maxWidth={"800px"}
             height={"fit-content"}
@@ -102,7 +110,7 @@ export const ProjectSection = ({ projects }: ProjectSectionProps) => {
               <div
                 style={{
                   fontSize: "1.05rem",
-                  color: "#33398f",
+                  color: "#6e77f0",
                   width: "100%",
                   paddingBottom: "2px",
                   borderBottom: "2px solid #5254548b",
@@ -124,7 +132,7 @@ export const ProjectSection = ({ projects }: ProjectSectionProps) => {
                       Source
                     </ProjectLink>
                   )}
-                  {project.liveUrl && "|"}
+                  {project.liveUrl && project.repo && "|"}
                   {project.liveUrl && (
                     <ProjectLink
                       href={project.liveUrl}
@@ -154,7 +162,7 @@ export const ProjectSection = ({ projects }: ProjectSectionProps) => {
                 )}
               </ProjectFooter>
             </ProjectLayout>
-          </Card>
+          </FancyCard>
         );
       })}
     </Container>
