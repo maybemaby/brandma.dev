@@ -34,7 +34,7 @@ const DockButton = styled.button<DockProps>`
     width: ${(p) => (p.open ? "30px" : "45px")};
   }
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 `;
@@ -52,7 +52,7 @@ const Dock = styled.nav<DockProps>`
   z-index: 6;
   animation: ${SlideOut} 300ms cubic-bezier(0.23, 1, 0.32, 1);
 
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 `;

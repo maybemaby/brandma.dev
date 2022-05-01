@@ -1,7 +1,16 @@
 import type { NextPage } from "next";
 import { useContext } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { FaReact, FaHtml5, FaCss3, FaPython, FaNodeJs } from "react-icons/fa";
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3,
+  FaPython,
+  FaNodeJs,
+  FaDocker,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
 import {
   SiDjango,
   SiJavascript,
@@ -10,6 +19,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { DarkModeContext } from "../components/DarkModeProvider";
+import { Topnav } from "../components/Topnav/Topnav";
 import { DarkModeToggle } from "../components/DarkModeToggle";
 import { ProjectSection, Project } from "../components/ProjectSection";
 import { SideBar } from "../components/SideBar/SideBar";
@@ -28,7 +38,7 @@ const PortfolioHeader = styled.header`
   height: 100px;
   color: ${(props) => props.theme.font.color};
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding-left: 15px;
   @media screen and (min-width: 768px) {
@@ -73,6 +83,7 @@ const Home: NextPage = () => {
         <SideBar links={links} />
         <PortfolioHeader>
           <HeaderIcon>brandma.dev</HeaderIcon>
+          <Topnav />
           <DarkModeToggle onClick={toggleDark} />
         </PortfolioHeader>
         <Main>
@@ -142,6 +153,25 @@ const Home: NextPage = () => {
                 bgColor={"#7d2fe2"}
                 color={"#e6e9ed"}
                 key={7}
+              />,
+              <IconBadge
+                label={"Docker"}
+                Icon={FaDocker}
+                bgColor={"#3480eb"}
+                key={11}
+              />,
+              <IconBadge
+                label="Git"
+                Icon={FaGitAlt}
+                bgColor="#eb6534"
+                key={12}
+              />,
+              <IconBadge
+                label="Github"
+                Icon={FaGithub}
+                bgColor={"#e6e9ed"}
+                color={"#000000"}
+                key={13}
               />,
             ]}
           />
