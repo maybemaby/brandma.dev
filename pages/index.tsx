@@ -16,6 +16,7 @@ import { SideBar } from "../components/SideBar/SideBar";
 import { TechSection } from "../components/TechSection";
 import { IconBadge } from "../components/IconBadge";
 import { lightTheme, darkTheme } from "../theme";
+import { projects } from "../data";
 
 const Div = styled.div`
   background: ${(props) => props.theme.bg.primary};
@@ -64,28 +65,6 @@ const Home: NextPage = () => {
     },
     { name: "Projects", path: "/projects" },
     { name: "Resume", path: "/resume" },
-  ];
-
-  const projects: Project[] = [
-    {
-      description: `Express API server that could power a home dashboard between roommates.
-      Roommates can add to the message board, create events, and assign tasks. 
-      Features JWT auth, logging with Winston, and Prisma with a relational database. 
-      `,
-      title: "Homeboard API",
-      technologies: ["Express.js", "Typescript", "Passportjs", "Prisma"],
-      repo: "https://github.com/maybemaby/homeboard-api",
-    },
-    {
-      description: `Personal developer portfolio made from scratch. Dark mode and theming
-      created using React Context and styled-components. Statically generated with Next.js.
-      `,
-      title: "Personal Portfolio",
-      technologies: ["Next.js", "Typescript", "styled-components"],
-      repo: "https://github.com/maybemaby/brandma.dev",
-      liveUrl: "https://brandma.dev/",
-      morePath: "/projects/portfolio",
-    },
   ];
 
   return (

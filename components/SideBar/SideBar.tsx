@@ -49,7 +49,7 @@ const Dock = styled.nav<DockProps>`
   gap: 15px;
   background-color: ${(p) => p.theme.bg.secondary};
   width: ${(p) => (p.open ? "200px" : "0px")};
-  z-index: 2;
+  z-index: 6;
   animation: ${SlideOut} 300ms cubic-bezier(0.23, 1, 0.32, 1);
 
   @media screen and (min-width: 1920px) {

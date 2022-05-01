@@ -24,13 +24,14 @@ const DarkModeButton = styled.button`
   position: fixed;
   top: 2rem;
   right: 1.5rem;
-  background: transparent;
+  background: ${(p) => p.theme.bg.primary};
   border: 3px solid ${(p) => p.theme.bg.secondary};
   cursor: pointer;
   padding: 3px;
   border-radius: 50%;
   animation: ${rotateAndZoom} 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 200ms ease-in-out;
+  z-index: 5;
   &:hover {
     padding: 5px;
     border-color: ${(p) => (p.theme.mode === "dark" ? "#32b997" : "#f3b91a")};
