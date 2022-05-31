@@ -11,9 +11,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 2px;
+  font-family: "Montserrat", "Segoe-UI", sans-serif;
 
   @media screen and (min-width: 768px) {
     padding: 100px 20%;
