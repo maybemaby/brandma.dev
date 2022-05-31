@@ -2,6 +2,14 @@ import { Project } from "./components/ProjectSection";
 
 export const projects: Project[] = [
   {
+    description: `Find people to play tennis with in San Jose based on preferred court and rating. Schedule matches and keep track
+    of past match scores. Built with ASP.NET Core 6 API. Monitoring and logging to New Relic.
+    `,
+    title: "SetMatch API",
+    technologies: ["ASP.NET Core 6", "Postgresql", "New Relic", "Serilog"],
+    morePath: "/projects/SetMatch",
+  },
+  {
     description: `Express API server that could power a home dashboard between roommates.
   Roommates can add to the message board, create events, and assign tasks. 
   Features JWT auth, logging with Winston, and Prisma with a relational database. 
@@ -28,5 +36,32 @@ export const projects: Project[] = [
     title: "VibeOfTheWeek",
     technologies: ["Next.js", "Firebase", "Typescript"],
     morePath: "/projects/vibeoftheweek",
+  },
+  {
+    description: `App made for a family member to track their financial advisor's investments. 
+    Schedules a task with Celery and Redis to pull in updated data everyday and add to the Postgres
+    database. Features overall value tracking, graph breakdowns, and tables.
+    `,
+    title: "InvestBoard",
+    technologies: [
+      "Django",
+      "Django-rest-framework",
+      "React",
+      "Material-UI",
+      "Docker",
+      "Postgresql",
+      "Celery",
+    ],
+    morePath: "/projects/investboard",
+  },
+  {
+    description: `Decision paralysis helper and organizer. Add choices and factors
+    with weighting. Sort by score to find your highest rated choices.
+    `,
+    title: "CantDecide",
+    technologies: ["React", "Typescript"],
+    repo: "https://github.com/maybemaby/CantDecide",
+    liveUrl: "https://cantdecideio.netlify.app/",
+    morePath: "/projects/cantdecide",
   },
 ];

@@ -17,7 +17,7 @@ const light = {
 const dark = {
   mode: "dark",
   bg: {
-    primary: "#101010",
+    primary: "#202021",
     secondary: "whitesmoke",
     gradient:
       "linear-gradient(97.52deg, #D2DBD6 41.27%, #FDD7F2 68.06%, #8CC8FF 96.58%)",

@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) return null;
+  if (!isMounted) return <div></div>;
 
   return (
     <DarkModeProvider>

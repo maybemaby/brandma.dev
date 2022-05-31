@@ -19,6 +19,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { DarkModeContext } from "../components/DarkModeProvider";
+import { Landing } from "../components/Landing/Landing";
 import { Topnav } from "../components/Topnav/Topnav";
 import { DarkModeToggle } from "../components/DarkModeToggle";
 import { ProjectSection, Project } from "../components/ProjectSection";
@@ -46,9 +47,10 @@ const PortfolioHeader = styled.header`
   }
 `;
 
-const HeaderIcon = styled.h1`
+const HeaderIcon = styled.div`
   margin: 0;
   font-size: ${(props) => props.theme.fontSizes[3]};
+  font-weight: 600;
   padding: 5px 10px;
   color: black;
   background: ${(props) => props.theme.bg.gradient};
@@ -86,6 +88,7 @@ const Home: NextPage = () => {
           <Topnav />
           <DarkModeToggle onClick={toggleDark} />
         </PortfolioHeader>
+        <Landing />
         <Main>
           <TechSection
             badges={[
