@@ -110,7 +110,12 @@ export const SideBar = ({ links }: SideBarProps) => {
       {open && (
         <Dock open={open}>
           {links.map((link, index) => (
-            <SideBarItem key={index} name={link.name} path={link.path} />
+            <SideBarItem
+              key={index}
+              name={link.name}
+              path={link.path}
+              target={link.name === "Resume" ? "_blank" : "_self"}
+            />
           ))}
         </Dock>
       )}

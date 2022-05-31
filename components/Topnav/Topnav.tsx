@@ -30,8 +30,8 @@ export const Topnav = () => {
       <Link href="/" passHref={true}>
         <NavLink>Home</NavLink>
       </Link>
-      <Link href="/resume" passHref={true}>
-        <NavLink>Resume</NavLink>
+      <Link href="/BrandonMa_resume.pdf" passHref={true}>
+        <NavLink target="_blank">Resume</NavLink>
       </Link>
     </Container>
   );

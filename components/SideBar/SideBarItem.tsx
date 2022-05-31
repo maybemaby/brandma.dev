@@ -4,6 +4,7 @@ import styled from "styled-components";
 interface SideBarProps {
   name: string;
   path: string;
+  target?: string;
 }
 
 const SideBarLink = styled.a`
@@ -18,10 +19,10 @@ const SideBarLink = styled.a`
   overflow: hidden;
 `;
 
-export const SideBarItem = ({ name, path }: SideBarProps) => {
+export const SideBarItem = ({ name, path, target }: SideBarProps) => {
   return (
     <Link href={path} passHref={true}>
-      <SideBarLink>{name}</SideBarLink>
+      <SideBarLink target={target ?? "_self"}>{name}</SideBarLink>
     </Link>
   );
 };
