@@ -76,7 +76,7 @@ const Home: NextPage = () => {
       path: "/",
     },
     { name: "Projects", path: "/projects" },
-    { name: "Resume", path: "/resume" },
+    { name: "Resume", path: "/BrandonMa_resume.pdf" },
   ];
 
   return (
